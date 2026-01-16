@@ -16,13 +16,9 @@ import {
   Globe,
   ChevronDown,
   ChevronUp,
-  Server,
   Wifi,
   WifiOff,
-  Play,
-  Pause,
   RefreshCw,
-  ExternalLink,
   Copy,
   Check,
 } from 'lucide-react';

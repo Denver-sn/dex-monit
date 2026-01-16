@@ -14,11 +14,25 @@ export interface User {
   avatarUrl?: string;
 }
 
+export interface TeamMember {
+  userId: string;
+  role: string;
+  user?: {
+    name?: string;
+    email?: string;
+  };
+}
+
 export interface Team {
   id: string;
   name: string;
   slug: string;
   description?: string;
+  members?: TeamMember[];
+  _count?: {
+    projects?: number;
+    members?: number;
+  };
 }
 
 export interface Project {

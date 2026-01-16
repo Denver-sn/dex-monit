@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { Suspense, useEffect, useState, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   AlertTriangle,
@@ -85,7 +85,7 @@ function Sparkline({ data, level }: { data: number[]; level: string }) {
   );
 }
 
-export default function IssuesPage() {
+function IssuesPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { user, loading: authLoading } = useAuth();
@@ -495,5 +495,13 @@ export default function IssuesPage() {
         )}
       </div>
     </AppLayout>
+  );
+}
+
+export default function IssuesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <IssuesPageContent />
+    </Suspense>
   );
 }

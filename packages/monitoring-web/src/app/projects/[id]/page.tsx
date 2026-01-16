@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import {
-  ArrowLeft,
   Key,
   Copy,
   Check,
@@ -13,8 +12,6 @@ import {
   Activity,
   ChevronRight,
   Shield,
-  Eye,
-  EyeOff,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AppLayout } from '@/components/AppLayout';

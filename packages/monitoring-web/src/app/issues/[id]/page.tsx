@@ -28,10 +28,6 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { issuesApi, Issue, Event } from '@/lib/api-client';
 
-function formatDate(date: string): string {
-  return new Date(date).toLocaleString();
-}
-
 function formatRelativeTime(date: string): string {
   const now = new Date();
   const then = new Date(date);
@@ -489,7 +485,9 @@ export default function IssueDetailPage() {
                               </p>
                               {crumb.data && crumb.type === 'http' && (
                                 <div className="mt-1 text-xs text-muted-foreground">
-                                  {crumb.data.method} {crumb.data.url} [{crumb.data.status_code}]
+                                  {(crumb.data as { method?: string; url?: string; status_code?: number }).method}{' '}
+                                  {(crumb.data as { method?: string; url?: string; status_code?: number }).url}{' '}
+                                  [{(crumb.data as { method?: string; url?: string; status_code?: number }).status_code}]
                                 </div>
                               )}
                             </div>

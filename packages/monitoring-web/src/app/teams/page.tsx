@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Users, Plus, UserPlus, Settings, Trash2, Crown, User } from 'lucide-react';
+import { Users, Plus, Trash2 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AppLayout } from '@/components/AppLayout';
 import { Button } from '@/components/ui/button';

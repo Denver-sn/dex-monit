@@ -6,8 +6,6 @@ import {
   Mail,
   Bell,
   Shield,
-  Check,
-  AlertTriangle,
   ExternalLink,
   Copy,
   Eye,
@@ -53,7 +51,7 @@ export default function SettingsPage() {
 
   const [teams, setTeams] = useState<Team[]>([]);
   const [selectedTeam, setSelectedTeam] = useState<string>('');
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   const [slackConfig, setSlackConfig] = useState<SlackConfig>({
     webhookUrl: '',

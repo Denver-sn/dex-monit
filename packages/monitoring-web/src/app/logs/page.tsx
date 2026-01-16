@@ -9,8 +9,6 @@ import {
   ChevronLeft,
   ChevronRight,
   RefreshCw,
-  Clock,
-  Filter,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AppLayout } from '@/components/AppLayout';
@@ -318,13 +316,13 @@ export default function LogsPage() {
                             )}
                           </div>
 
-                          {/* Context */}
-                          {log.context && Object.keys(log.context).length > 0 && (
+                          {/* Data */}
+                          {log.data && Object.keys(log.data).length > 0 && (
                             <div>
-                              <p className="text-xs text-muted-foreground mb-1">Context</p>
+                              <p className="text-xs text-muted-foreground mb-1">Data</p>
                               <div className="code-block p-3">
                                 <pre className="whitespace-pre-wrap">
-                                  {JSON.stringify(log.context, null, 2)}
+                                  {JSON.stringify(log.data, null, 2)}
                                 </pre>
                               </div>
                             </div>

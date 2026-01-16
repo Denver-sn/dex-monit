@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { FolderOpen, Plus, AlertTriangle, ArrowRight, Layers } from 'lucide-react';
+import { Plus, AlertTriangle, ArrowRight, Layers } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AppLayout } from '@/components/AppLayout';
 import { Button } from '@/components/ui/button';
