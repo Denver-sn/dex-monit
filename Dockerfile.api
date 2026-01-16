@@ -48,15 +48,20 @@ COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 # Copy built application from builder
 COPY --from=builder /app/packages/monitoring-api/dist ./dist
 
-# Environment
+# Environment - PORT is configurable via env var
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1
+# Health check script that uses PORT env var
+RUN echo '#!/bin/sh' > /healthcheck.sh && \
+    echo 'wget --no-verbose --tries=1 --spider http://localhost:${PORT}/api/health || exit 1' >> /healthcheck.sh && \
+    chmod +x /healthcheck.sh
 
-EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  CMD /healthcheck.sh
+
+# Expose default port (can be overridden at runtime)
+EXPOSE ${PORT}
 
 # Run the application
 CMD ["node", "dist/main.js"]
