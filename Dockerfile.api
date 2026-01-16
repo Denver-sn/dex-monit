@@ -20,6 +20,9 @@ COPY packages/monitoring-api ./packages/monitoring-api
 # Install all dependencies
 RUN npm ci --legacy-peer-deps
 
+# Install specific Prisma version (v7 has breaking changes)
+RUN npm install prisma@5.22.0 @prisma/client@5.22.0
+
 # Generate Prisma Client
 WORKDIR /app/packages/monitoring-api
 RUN npx prisma generate
@@ -38,6 +41,9 @@ COPY package*.json ./
 
 # Install production dependencies only
 RUN npm ci --only=production --legacy-peer-deps --ignore-scripts
+
+# Install specific Prisma version (v7 has breaking changes)
+RUN npm install prisma@5.22.0 @prisma/client@5.22.0
 
 # Copy Prisma schema and generate client
 COPY packages/monitoring-api/prisma ./prisma
