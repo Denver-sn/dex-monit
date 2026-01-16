@@ -3,6 +3,9 @@
 # Place this at ROOT of repo for Dokploy
 # ============================================
 
+# Cache buster - change this to force rebuild
+ARG CACHE_BUST=v3
+
 # Build stage
 FROM node:20-alpine AS builder
 
