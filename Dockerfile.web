@@ -19,8 +19,8 @@ COPY packages/monitoring-web ./packages/monitoring-web
 # Install all dependencies
 RUN npm ci --legacy-peer-deps
 
-# Build argument for API URL
-ARG NEXT_PUBLIC_API_URL=http://localhost:3000/api
+# API URL for production - change this for your deployment
+ARG NEXT_PUBLIC_API_URL=https://monit-api.cloud.dexchange.group/api
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
 # Sync workspace and build the Web app
