@@ -22,7 +22,6 @@ import {
   AlertCircle,
   Smartphone,
   Monitor,
-  Cpu,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AppLayout } from '@/components/AppLayout';
